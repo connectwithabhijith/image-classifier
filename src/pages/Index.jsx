@@ -69,11 +69,18 @@ const Index = () => {
             {/* Hero Section */}
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="gradient-text">Image Classification</span>
+                <span className="gradient-text">Waste Classification</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Upload an image and let our machine learning model predict its class with confidence scores.
+                Upload an image of waste and our ML model will classify it as cardboard, glass, metal, paper, plastic, or trash.
               </p>
+              <div className="flex flex-wrap justify-center gap-2 mt-6">
+                {["Cardboard", "Glass", "Metal", "Paper", "Plastic", "Trash"].map((label) => (
+                  <span key={label} className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full border border-border">
+                    {label}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Main Content */}
