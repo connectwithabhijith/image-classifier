@@ -2,8 +2,9 @@ import { useState } from "react";
 import ImageUploader from "../components/ImageUploader.jsx";
 import PredictionResult from "../components/PredictionResult.jsx";
 import Header from "../components/Header.jsx";
-import WasteClassesInfo from "../components/WasteClassesInfo.jsx";
+import WasteClassDetails from "../components/WasteClassDetails.jsx";
 import { Leaf } from "lucide-react";
+
 const Index = () => {
   const [prediction, setPrediction] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,6 @@ const Index = () => {
     formData.append("image", file);
 
     try {
-      // Update this URL to your Flask API endpoint
       const response = await fetch("http://localhost:5000/predict", {
         method: "POST",
         body: formData,
@@ -103,8 +103,8 @@ const Index = () => {
               />
             </div>
 
-            {/* Waste Classes Info Section */}
-            <WasteClassesInfo />
+            {/* Waste Class Details - Only shows when an image is classified */}
+            <WasteClassDetails predictedClass={prediction?.class} />
           </div>
         </main>
       </div>
