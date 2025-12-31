@@ -2,7 +2,8 @@ import { useState } from "react";
 import ImageUploader from "../components/ImageUploader.jsx";
 import PredictionResult from "../components/PredictionResult.jsx";
 import Header from "../components/Header.jsx";
-
+import WasteClassesInfo from "../components/WasteClassesInfo.jsx";
+import { Leaf } from "lucide-react";
 const Index = () => {
   const [prediction, setPrediction] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -55,10 +56,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background glow effect */}
+      {/* Eco-friendly background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-primary/3 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
@@ -68,15 +70,19 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
+                <Leaf className="w-4 h-4 text-primary" />
+                <span className="text-sm text-primary font-medium">Eco-Friendly AI Classification</span>
+              </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="gradient-text">Waste Classification</span>
+                <span className="gradient-text">Smart Waste Sorting</span>
               </h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Upload an image of waste and our ML model will classify it as cardboard, glass, metal, paper, plastic, or trash.
+                Help protect our planet by properly classifying waste. Upload an image and our AI will identify the waste type for sustainable recycling.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mt-6">
-                {["Cardboard", "Glass", "Metal", "Paper", "Plastic", "Trash"].map((label) => (
-                  <span key={label} className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full border border-border">
+                {["🗃️ Cardboard", "🫙 Glass", "⚙️ Metal", "📄 Paper", "🧴 Plastic", "🗑️ Trash"].map((label) => (
+                  <span key={label} className="px-3 py-1.5 bg-secondary text-secondary-foreground text-sm rounded-full border border-primary/20 hover:bg-primary/10 transition-colors">
                     {label}
                   </span>
                 ))}
@@ -97,16 +103,8 @@ const Index = () => {
               />
             </div>
 
-            {/* Instructions */}
-            <div className="mt-16 p-6 bg-card rounded-xl border border-border">
-              <h2 className="text-xl font-semibold mb-4 text-foreground">How to Connect the Backend</h2>
-              <div className="space-y-3 text-muted-foreground text-sm font-mono">
-                <p>1. Save your trained model as <code className="text-primary">model.h5</code> or <code className="text-primary">model.keras</code></p>
-                <p>2. Create the Flask API using the code provided below</p>
-                <p>3. Run: <code className="text-primary">python app.py</code></p>
-                <p>4. The API will be available at <code className="text-primary">http://localhost:5000</code></p>
-              </div>
-            </div>
+            {/* Waste Classes Info Section */}
+            <WasteClassesInfo />
           </div>
         </main>
       </div>
