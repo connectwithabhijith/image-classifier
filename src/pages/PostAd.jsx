@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Navbar from '../components/Navbar';
+import WasteClassDetails from '../components/WasteClassDetails';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
@@ -279,34 +280,12 @@ const PostAd = () => {
                   </Button>
                 )}
 
-                {/* Prediction Result */}
+                {/* Prediction Result - Enhanced WasteClassDetails */}
                 {prediction && (
-                  <div className="bg-secondary/50 rounded-lg p-6 space-y-4">
-                    <h3 className="font-semibold text-lg flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      Classification Result
-                    </h3>
-                    <div className="grid gap-3">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Category:</span>
-                        <span className="font-medium capitalize">{prediction.predictedCategory}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Confidence:</span>
-                        <span className="font-medium">{(prediction.confidence * 100).toFixed(1)}%</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Recyclability:</span>
-                        <span className={`font-medium ${prediction.recyclability === 'Recyclable' ? 'text-primary' : 'text-destructive'}`}>
-                          {prediction.recyclability}
-                        </span>
-                      </div>
-                      <div className="pt-2 border-t border-border">
-                        <span className="text-muted-foreground text-sm">Suggested Usage:</span>
-                        <p className="text-sm mt-1">{prediction.suggestedUsage}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <WasteClassDetails 
+                    predictedClass={prediction.predictedCategory} 
+                    uploadedImage={imagePreview}
+                  />
                 )}
 
                 {/* Continue Button */}
