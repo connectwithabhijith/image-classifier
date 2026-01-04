@@ -124,4 +124,60 @@
       transform: translateY(-10px);
     }
   }
+
+  /* Section card hover effect */
+  .section-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+  }
+
+  .section-card:hover {
+    @apply shadow-lg border-primary/20;
+  }
+
+  /* Stat card styling */
+  .stat-card {
+    @apply bg-gradient-to-br from-primary/5 to-primary/0 border border-primary/10 rounded-xl p-5 text-center transition-all duration-300;
+  }
+
+  .stat-card:hover {
+    @apply shadow-md border-primary/30 from-primary/10;
+  }
+
+  /* Journey connector line */
+  .journey-connector {
+    @apply absolute top-1/2 left-full w-full h-0.5 bg-gradient-to-r from-primary/40 to-primary/10;
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Eco gradient background */
+  .eco-gradient {
+    background: linear-gradient(135deg, hsl(142 76% 36% / 0.08) 0%, hsl(85 60% 45% / 0.04) 100%);
+  }
+
+  /* Card shine effect on hover */
+  .card-shine {
+    @apply relative overflow-hidden;
+  }
+
+  .card-shine::before {
+    content: '';
+    @apply absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform skew-x-12 transition-transform duration-700;
+  }
+
+  .card-shine:hover::before {
+    @apply left-full;
+  }
 }
