@@ -104,7 +104,7 @@ const Index = () => {
             </div>
 
             {/* Waste Class Details - Only shows when an image is classified */}
-            <WasteClassDetails predictedClass={prediction?.class} />
+            <WasteClassDetails predictedClass={prediction?.class} uploadedImage={uploadedImage} />
           </div>
         </main>
       </div>
