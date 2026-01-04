@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Model configuration
-MODEL_PATH = os.environ.get('MODEL_PATH', 'model/waste_classifier.h5')
+MODEL_PATH = os.environ.get('MODEL_PATH', 'model/waste_classifier.keras')
 IMG_SIZE = (224, 224)
 CLASS_NAMES = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
 
